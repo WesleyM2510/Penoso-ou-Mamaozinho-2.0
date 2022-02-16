@@ -63,15 +63,9 @@ jobs:
           pytest test_api.py
           
       
-      - name: geckodriver/firefox
-        run: |
-          echo "Configurando ambiente para  testes de end to end 👨🏻‍🔧"
-          echo "geckodriver/firefox"
-          which geckodriver
-          geckodriver --version
-          which firefox
-          firefox --version
-          
+      - uses: browser-actions/setup-geckodriver@latest
+      - run: geckodriver --version
+
       - run: |
           echo "Testando login"
           source venv/bin/activate
