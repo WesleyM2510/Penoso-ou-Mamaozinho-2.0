@@ -72,18 +72,13 @@ jobs:
           which firefox
           firefox --version
           
-      - run:
+      - run: |
           echo "Testando login"
           cd ${{github.workspace}}
           cp tests/e2e_tests/login/test_login.py .
           python test_login.py
       
-       
-      - run:
-          echo "Testando login2"
-          cd ${{github.workspace}}
-          cp tests/e2e_tests/login/test_login.py .
-          unittest test_login.py
+      
       
           
 
