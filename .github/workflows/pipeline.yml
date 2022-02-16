@@ -75,7 +75,6 @@ jobs:
       - run: |
           echo "Testando login"
           source venv/bin/activate
-          pip install -r requirements-tests.txt
           cp tests/e2e_tests/login/test_login.py .
           python test_login.py
       
