@@ -63,21 +63,21 @@ jobs:
           pytest test_api.py
           
       
-      - run: | 
-          echo "Rodando testes de end to end 👨🏻‍🔧"
-          source venv/bin/activate
-          pip install -r requirements-tests.txt
-          cp tests/unit_tests/test_api.py .
-          export TESTING=y
-          export FLASK_ENV=development
-          pytest test_api.py
       - name: geckodriver/firefox
         run: |
+          echo "Configurando ambiente para  testes de end to end 👨🏻‍🔧"
           echo "geckodriver/firefox"
           which geckodriver
           geckodriver --version
           which firefox
           firefox --version
+          
+      - run:
+          echo "Testando login"
+          cd ${{github.workspace}}
+          cp tests/e2e_tests/login/test_login.py .
+          python -m unittest test_login.py
+      
           
           
 
