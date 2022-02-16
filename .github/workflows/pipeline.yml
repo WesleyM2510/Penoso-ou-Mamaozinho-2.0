@@ -76,8 +76,7 @@ jobs:
           echo "Testando login"
           source venv/bin/activate
           cp tests/e2e_tests/login/test_login.py .
-          python test_login.py
-      
+          pytest test_login.py      
       
       
           
